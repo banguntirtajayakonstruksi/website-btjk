@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page Modern</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: #f5f7fa;
+            color: #2c3e50;
+        }
+
+        .navbar {
+            position: fixed;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 74, 124, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 60px;
+            width: 60px;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #004A7C;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #004A7C;
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #0077BE 0%, #00A8E8 100%);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-slide.active {
+            opacity: 0.25;
+        }
+
+        .hero-slide::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 74, 124, 0.8) 0%, rgba(0, 119, 190, 0.6) 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 168, 232, 0.15) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 119, 190, 0.12) 0%, transparent 70%);
+            bottom: -150px;
+            left: -150px;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, 30px); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #004A7C 0%, #0077BE 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #5a6c7d;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: linear-gradient(135deg, #0077BE 0%, #00A8E8 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 119, 190, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 168, 232, 0.4);
+        }
+
+        .features {
+            padding: 100px 50px;
+            background: #ffffff;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 48px;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #004A7C 0%, #0077BE 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 119, 190, 0.1);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: #ffffff;
+            box-shadow: 0 20px 40px rgba(0, 119, 190, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #004A7C;
+        }
+
+        .feature-card p {
+            color: #5a6c7d;
+            line-height: 1.6;
+        }
+
+        .portfolio {
+            padding: 100px 50px;
+            background: #f5f7fa;
+        }
+
+        .portfolio h2 {
+            text-align: center;
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #004A7C 0%, #0077BE 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .portfolio-subtitle {
+            text-align: center;
+            color: #5a6c7d;
+            font-size: 18px;
+            margin-bottom: 60px;
+        }
+
+        .portfolio-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            padding: 12px 30px;
+            background: #ffffff;
+            border: 1px solid rgba(0, 119, 190, 0.2);
+            border-radius: 30px;
+            color: #004A7C;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+
+        .tab-button:hover, .tab-button.active {
+            background: linear-gradient(135deg, #0077BE 0%, #00A8E8 100%);
+            border-color: #0077BE;
+            color: #ffffff;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .portfolio-card {
+            background: #ffffff;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 119, 190, 0.1);
+            transition: all 0.3s;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 119, 190, 0.15);
+        }
+
+        .portfolio-image {
+            display: none;
+        }
+
+        .portfolio-content {
+            padding: 25px;
+        }
+
+        .portfolio-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #004A7C;
+        }
+
+        .portfolio-location {
+            color: #0077BE;
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .portfolio-category {
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(0, 168, 232, 0.1);
+            border-radius: 20px;
+            font-size: 12px;
+            color: #0077BE;
+            margin-top: 10px;
+        }
+
+        .cta-section {
+            padding: 100px 50px;
+            text-align: center;
+            background: linear-gradient(135deg, #0077BE 0%, #00A8E8 100%);
+        }
+
+        .cta-section h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        footer {
+            padding: 60px 50px 30px;
+            background: #ffffff;
+            border-top: 1px solid rgba(0, 119, 190, 0.1);
+            color: #5a6c7d;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: #004A7C;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #5a6c7d;
+            line-height: 1.8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-section a:hover {
+            color: #0077BE;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: start;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .contact-icon {
+            color: #0077BE;
+            font-size: 20px;
+            margin-top: 2px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0, 119, 190, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #f5f7fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(135deg, #0077BE 0%, #00A8E8 100%);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 40px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .features h2, .cta-section h2 {
+                font-size: 32px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="https://drive.google.com/uc?export=view&id=1LyAPrqNOcdRSDI-odbvwl8UiXsGhVRCS" alt="BTJK Logo">
+            <span class="logo-text">PT Bangun Tirta Jaya Konstruksi</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Keunggulan</a></li>
+            <li><a href="#portfolio">Portofolio</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-slider">
+            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&h=1080&fit=crop')"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920&h=1080&fit=crop')"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1590856029620-48889a92128e?w=1920&h=1080&fit=crop')"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&h=1080&fit=crop')"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1581094794329-c8112c4e5190?w=1920&h=1080&fit=crop')"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Wujudkan Pembangunan Impian Anda</h1>
+            <p>Bangun & Renovasi Lebih Mudah Bersama Kontraktor Terpercaya. Kami menghadirkan layanan konstruksi rumah, ruko, hingga gedung dengan hasil kokoh, estetis, dan tepat waktu. Konsultasi gratis & harga transparan.</p>
+            <a href="https://wa.me/6282122373679?text=Halo%20PT%20Bangun%20Tirta%20Jaya%20Konstruksi%2C%20saya%20ingin%20konsultasi%20tentang%20proyek%20konstruksi" target="_blank" class="cta-button">👉 Konsultasi Sekarang</a>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <h2>Keunggulan Kami</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🏗️</div>
+                <h3>Pengalaman Puluhan Tahun</h3>
+                <p>Tim profesional dengan pengalaman bertahun-tahun dalam menangani berbagai proyek konstruksi dari rumah tinggal hingga gedung bertingkat.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✅</div>
+                <h3>Kualitas Terjamin</h3>
+                <p>Menggunakan material berkualitas tinggi dan standar konstruksi terbaik untuk memastikan bangunan yang kokoh dan tahan lama.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⏱️</div>
+                <h3>Tepat Waktu & Budget</h3>
+                <p>Komitmen penyelesaian proyek sesuai jadwal yang disepakati dengan harga transparan tanpa biaya tersembunyi.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+        <h2>Portofolio Proyek Kami</h2>
+        <p class="portfolio-subtitle">Lebih dari 20 tahun pengalaman menangani berbagai proyek konstruksi</p>
+        
+        <div class="portfolio-tabs">
+            <button class="tab-button active" onclick="filterPortfolio('all')">Semua Proyek</button>
+            <button class="tab-button" onclick="filterPortfolio('pabrik')">Pabrik & Gudang</button>
+            <button class="tab-button" onclick="filterPortfolio('komersial')">Ruko & Sekolah</button>
+            <button class="tab-button" onclick="filterPortfolio('residensial')">Rumah & Villa</button>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 40px;">
+            <a href="https://drive.google.com/file/d/1lZuD_fSCsiwAQpzJ7tAb9n-uV0HYrqXj/view?usp=drivesdk" target="_blank" class="cta-button" style="display: inline-flex; align-items: center; gap: 10px;">
+                📥 Download Portofolio Lengkap
+            </a>
+        </div>
+
+        <div class="portfolio-grid" id="portfolioGrid">
+            <div class="portfolio-card" data-category="pabrik">
+                <img src="https://images.unsplash.com/photo-1565008576549-57569a49371d?w=600&h=400&fit=crop" alt="PT Kharisma Karya Plast" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>PT Kharisma Karya Plast</h3>
+                    <div class="portfolio-location">📍 Cileungsi</div>
+                    <span class="portfolio-category">Pabrik</span>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="pabrik">
+                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop" alt="PT Sumber Surya Manis" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>PT Sumber Surya Manis</h3>
+                    <div class="portfolio-location">📍 Dadap</div>
+                    <span class="portfolio-category">Pabrik</span>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="pabrik">
+                <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&h=400&fit=crop" alt="PT HSK Multiguna" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>PT HSK Multiguna</h3>
+                    <div class="portfolio-location">📍 Serpong</div>
+                    <span class="portfolio-category">Pabrik</span>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="pabrik">
+                <img src="https://images.unsplash.com/photo-1581094794329-c8112c4e5190?w=600&h=400&fit=crop" alt="PT Putra Bali" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>PT Putra Bali</h3>
+                    <div class="portfolio-location">📍 Cipondoh</div>
+                    <span class="portfolio-category">Pabrik</span>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="pabrik">
+                <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&h=400&fit=crop" alt="Pergudangan Cipondoh" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Pergudangan Cipondoh</h3>
+                    <div class="portfolio-location">📍 Cipondoh</div>
+                    <span class="portfolio-category">Gudang</span>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="pabrik">
+                <img src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=600&h=400&fit=crop" alt="Pergudangan Mutiara Kosambi" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Pergudangan Mutiara Kosambi</h3>
+                    <div class="portfolio-location">📍 Kosambi Dadap</div>
+                    <span class="portfolio-category">Gudang</span>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="pabrik">
+                <img src="https://images.unsplash.com/photo-1590856029620-48889a92128e?w=600&h=400&fit=crop" alt="PT Putra Naga Indotama" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>PT Putra Naga Indotama</h3>
+                    <div class="portfolio-location">📍 Karet & Purwakarta</div>
+                    <span class="portfolio-category">Pabrik</span>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="pabrik">
+                <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=600&h=400&fit=crop" alt="PT Dwi Global Megabox" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>PT Dwi Global Megabox</h3>
+                    <div class="portfolio-location">📍 Pasar Kemis</div>
+                    <span class="portfolio-category">Pabrik</span>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="pabrik">
+                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop" alt="PT Jaya Abadi Gemilang" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>PT Jaya Abadi Gemilang</h3>
+                    <div class="portfolio-location">📍 Pasar Kemis</div>
+                    <span class="portfolio-category">Pabrik</span>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="pabrik">
+                <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=600&h=400&fit=crop" alt="PT Paperpack Printama Indonesia" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>PT Paperpack Printama Indonesia</h3>
+                    <div class="portfolio-location">📍 Pergudangan Manis</div>
+                    <span class="portfolio-category">Pabrik</span>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="pabrik">
+                <img src="https://images.unsplash.com/photo-1605902394069-ff2ae2430e62?w=600&h=400&fit=crop" alt="Pabrik Es Batu Kristal" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Pabrik Es Batu Kristal</h3>
+                    <div class="portfolio-location">📍 Tuban, Jawa Timur</div>
+                    <span class="portfolio-category">Pabrik</span>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="komersial">
+                <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&h=400&fit=crop" alt="Sekolah Bonavita" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Sekolah Bonavita</h3>
+                    <div class="portfolio-location">📍 Kota Tangerang</div>
+                    <span class="portfolio-category">Sekolah</span>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="komersial">
+                <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop" alt="Ruko Panarub" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Ruko Panarub</h3>
+                    <div class="portfolio-location">📍 Panarub Tangerang</div>
+                    <span class="portfolio-category">Ruko</span>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="komersial">
+                <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=600&h=400&fit=crop" alt="Ruko Cipondoh" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Ruko Cipondoh</h3>
+                    <div class="portfolio-location">📍 Cipondoh</div>
+                    <span class="portfolio-category">Ruko</span>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="komersial">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop" alt="Ruko Palembang" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Ruko Palembang</h3>
+                    <div class="portfolio-location">📍 Palembang</div>
+                    <span class="portfolio-category">Ruko</span>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="komersial">
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&h=400&fit=crop" alt="Ruko Cengkareng" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Ruko Cengkareng</h3>
+                    <div class="portfolio-location">📍 Cengkareng, Jakarta Barat</div>
+                    <span class="portfolio-category">Ruko</span>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="residensial">
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop" alt="Renovasi Rumah Cluster Picardie" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Renovasi Rumah Cluster Picardie</h3>
+                    <div class="portfolio-location">📍 Modernland</div>
+                    <span class="portfolio-category">Renovasi</span>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="residensial">
+                <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&h=400&fit=crop" alt="Renovasi Rumah Cluster Alam Sutera" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Renovasi Rumah Cluster Alam Sutera</h3>
+                    <div class="portfolio-location">📍 Sutera Palma & De Mansion</div>
+                    <span class="portfolio-category">Renovasi</span>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="residensial">
+                <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&h=400&fit=crop" alt="Pembangunan Rumah Tinggal" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Pembangunan Rumah Tinggal</h3>
+                    <div class="portfolio-location">📍 Tuban</div>
+                    <span class="portfolio-category">Rumah</span>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="residensial">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&h=400&fit=crop" alt="Renovasi Rumah Residence One" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Renovasi Rumah Residence One</h3>
+                    <div class="portfolio-location">📍 BSD</div>
+                    <span class="portfolio-category">Renovasi</span>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="residensial">
+                <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&h=400&fit=crop" alt="Renovasi Rumah Citra Raya" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Renovasi Rumah Citra Raya</h3>
+                    <div class="portfolio-location">📍 Serang</div>
+                    <span class="portfolio-category">Renovasi</span>
+                </div>
+            </div>
+
+            <div class="portfolio-card" data-category="residensial">
+                <img src="https://images.unsplash.com/photo-1602941525421-8f8b81d3edbb?w=600&h=400&fit=crop" alt="Pembangunan Villa" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Pembangunan Villa</h3>
+                    <div class="portfolio-location">📍 Sukabumi</div>
+                    <span class="portfolio-category">Villa</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <h2>Wujudkan Proyek Konstruksi Anda Bersama Kami</h2>
+        <p>Dapatkan konsultasi gratis dan penawaran terbaik untuk proyek rumah, ruko, atau gedung impian Anda</p>
+        <a href="https://wa.me/6282122373679?text=Halo%20PT%20Bangun%20Tirta%20Jaya%20Konstruksi%2C%20saya%20ingin%20konsultasi%20tentang%20proyek%20konstruksi" target="_blank" class="cta-button" style="background: #ffffff; color: #0077BE; border: 2px solid #ffffff;">Hubungi Kami</a>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>PT Bangun Tirta Jaya Konstruksi</h3>
+                <p>Kontraktor dan perancang bangunan terpercaya dengan pengalaman lebih dari 20 tahun dalam bidang jasa konstruksi.</p>
+                <div class="social-links">
+                    <a href="https://wa.me/6282111180168" target="_blank" title="WhatsApp">📱</a>
+                    <a href="mailto:Citrawijayasupiono21@gmail.com" title="Email">✉️</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Layanan Kami</h3>
+                <a href="#features">Pembangunan Pabrik & Gudang</a>
+                <a href="#features">Konstruksi Ruko & Sekolah</a>
+                <a href="#features">Pembangunan Rumah Tinggal</a>
+                <a href="#features">Renovasi & Redesign</a>
+                <a href="#features">Perencanaan & Desain</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Hubungi Kami</h3>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <div>
+                        <strong>Alamat:</strong><br>
+                        JL Kampung Melayu Timur<br>
+                        Kabupaten Tangerang
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <div>
+                        <strong>Telepon:</strong><br>
+                        <a href="tel:082111180168">0821-1118-0168</a><br>
+                        <a href="tel:082122373679">0821-2237-3679</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">✉️</span>
+                    <div>
+                        <strong>Email:</strong><br>
+                        <a href="mailto:Citrawijayasupiono21@gmail.com">Citrawijayasupiono21@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 PT Bangun Tirta Jaya Konstruksi. Semua hak dilindungi.</p>
+        </div>
+    </footer>
+
+    <script>
+        function filterPortfolio(category) {
+            const cards = document.querySelectorAll('.portfolio-card');
+            const buttons = document.querySelectorAll('.tab-button');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Hero slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        setInterval(nextSlide, 4000);
+    </script>
+</body>
+</html>
