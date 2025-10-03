@@ -8,8 +8,51 @@
     <meta property="og:title" content="PT Bangun Tirta Jaya Konstruksi - Kontraktor Terpercaya">
     <meta property="og:description" content="Wujudkan proyek konstruksi impian Anda bersama kontraktor berpengalaman 20+ tahun">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.ibb.co.com/dRCqtt5/LOGO.png">
     <title>PT Bangun Tirta Jaya Konstruksi - Kontraktor Terpercaya Tangerang</title>
+    
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://i.ibb.co.com">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "PT Bangun Tirta Jaya Konstruksi",
+      "description": "Kontraktor dan perancang bangunan terpercaya dengan pengalaman lebih dari 20 tahun",
+      "image": "https://i.ibb.co.com/dRCqtt5/LOGO.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "JL Kampung Melayu Timur",
+        "addressLocality": "Tangerang",
+        "addressRegion": "Banten",
+        "addressCountry": "ID"
+      },
+      "telephone": "+62-813-1873-7459",
+      "email": "banguntirtajaya.konstruksi@gmail.com",
+      "priceRange": "$$",
+      "openingHours": "Mo-Sa 08:00-17:00",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "50"
+      }
+    }
+    </script>
+    
     <style>
+        :root {
+            --primary: #004A7C;
+            --primary-light: #0077BE;
+            --accent: #00A8E8;
+            --text: #2c3e50;
+            --text-light: #5a6c7d;
+            --bg: #f5f7fa;
+            --white: #fff;
+            --success: #25D366;
+            --warning: #FFD700;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -17,10 +60,11 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             overflow-x: hidden;
-            background: #f5f7fa;
-            color: #2c3e50;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
         }
 
         .navbar {
@@ -41,13 +85,19 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+        }
+
+        .logo img {
+            height: 150px;
+            width: 150px;
+            object-fit: contain;
         }
 
         .logo-text {
             font-size: 20px;
-            font-weight: bold;
-            color: #004A7C;
+            font-weight: 700;
+            color: var(--primary);
         }
 
         .nav-links {
@@ -57,7 +107,7 @@
         }
 
         .nav-links a {
-            color: #004A7C;
+            color: var(--primary);
             text-decoration: none;
             transition: all 0.3s;
             position: relative;
@@ -71,7 +121,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(135deg, #0077BE 0%, #00A8E8 100%);
+            background: linear-gradient(135deg, var(--primary-light), var(--accent));
             transition: width 0.3s;
         }
 
@@ -89,21 +139,34 @@
         .hamburger span {
             width: 25px;
             height: 3px;
-            background: #004A7C;
+            background: var(--primary);
             border-radius: 3px;
             transition: all 0.3s;
         }
 
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            animation: pulse 2s infinite;
         }
 
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
+        .whatsapp-float a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: var(--success);
+            border-radius: 50%;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s;
         }
 
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         .hero {
@@ -132,13 +195,13 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 1.5s ease-in-out;
+            transition: opacity 1.5s;
             background-size: cover;
             background-position: center;
         }
 
         .hero-slide.active {
-            opacity: 0.5;
+            opacity: 1;
         }
 
         .hero-slide::after {
@@ -148,34 +211,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0, 74, 124, 0.7) 0%, rgba(0, 119, 190, 0.5) 100%);
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(0, 168, 232, 0.15) 0%, transparent 70%);
-            top: -200px;
-            right: -200px;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(0, 119, 190, 0.12) 0%, transparent 70%);
-            bottom: -150px;
-            left: -150px;
-            animation: float 8s ease-in-out infinite reverse;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(30px, 30px); }
+            background: linear-gradient(135deg, rgba(0, 74, 124, 0.85), rgba(0, 119, 190, 0.75));
         }
 
         .hero-content {
@@ -197,27 +233,26 @@
         }
 
         .hero h1 {
-            font-size: 64px;
+            font-size: clamp(36px, 6vw, 52px);
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #004A7C 0%, #0077BE 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--white);
             line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         .hero p {
-            font-size: 20px;
-            color: #5a6c7d;
+            font-size: clamp(16px, 2vw, 20px);
+            color: var(--white);
             margin-bottom: 40px;
             line-height: 1.6;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
         }
 
         .cta-button {
             display: inline-block;
             padding: 18px 40px;
-            background: linear-gradient(135deg, #0077BE 0%, #00A8E8 100%);
-            color: #fff;
+            background: linear-gradient(135deg, var(--primary-light), var(--accent));
+            color: var(--white);
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
@@ -230,80 +265,108 @@
             box-shadow: 0 15px 40px rgba(0, 168, 232, 0.4);
         }
 
-        .features {
-            padding: 100px 50px;
-            background: #ffffff;
+        .stats {
+            background: linear-gradient(135deg, var(--primary-light), var(--accent));
+            padding: 60px 50px;
+            color: var(--white);
         }
 
-        .features h2 {
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
             text-align: center;
+        }
+
+        .stat-number {
             font-size: 48px;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            padding: 100px 50px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(32px, 5vw, 48px);
             margin-bottom: 60px;
-            background: linear-gradient(135deg, #004A7C 0%, #0077BE 100%);
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .features-grid {
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 18px;
+            margin-bottom: 60px;
+        }
+
+        .features-grid, .portfolio-grid, .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .feature-card {
-            background: #f8f9fa;
+        .feature-card, .portfolio-card, .testimonial-card {
+            background: var(--white);
             padding: 40px;
             border-radius: 20px;
-            backdrop-filter: blur(10px);
             border: 1px solid rgba(0, 119, 190, 0.1);
             transition: all 0.3s;
         }
 
-        .feature-card:hover {
+        .feature-card:hover, .portfolio-card:hover, .testimonial-card:hover {
             transform: translateY(-10px);
-            background: #ffffff;
             box-shadow: 0 20px 40px rgba(0, 119, 190, 0.15);
         }
 
-        .feature-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
+        .portfolio-card {
+            padding: 0;
+            overflow: hidden;
         }
 
-        .feature-card h3 {
+        .portfolio-content {
+            padding: 25px;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 30px;
+            background: var(--white);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 119, 190, 0.1);
+            transition: all 0.3s;
+        }
+
+        .process-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-light), var(--accent));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 24px;
-            margin-bottom: 15px;
-            color: #004A7C;
-        }
-
-        .feature-card p {
-            color: #5a6c7d;
-            line-height: 1.6;
-        }
-
-        .portfolio {
-            padding: 100px 50px;
-            background: #f5f7fa;
-        }
-
-        .portfolio h2 {
-            text-align: center;
-            font-size: 48px;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #004A7C 0%, #0077BE 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .portfolio-subtitle {
-            text-align: center;
-            color: #5a6c7d;
-            font-size: 18px;
-            margin-bottom: 60px;
+            font-weight: 700;
+            margin: 0 auto 20px;
         }
 
         .portfolio-tabs {
@@ -316,111 +379,75 @@
 
         .tab-button {
             padding: 12px 30px;
-            background: #ffffff;
+            background: var(--white);
             border: 1px solid rgba(0, 119, 190, 0.2);
             border-radius: 30px;
-            color: #004A7C;
+            color: var(--primary);
             cursor: pointer;
             transition: all 0.3s;
-            font-size: 16px;
         }
 
-        .tab-button:hover, .tab-button.active {
-            background: linear-gradient(135deg, #0077BE 0%, #00A8E8 100%);
-            border-color: #0077BE;
-            color: #ffffff;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .portfolio-card {
-            background: #ffffff;
-            border-radius: 15px;
-            overflow: hidden;
-            border: 1px solid rgba(0, 119, 190, 0.1);
-            transition: all 0.3s;
-            opacity: 1;
+        .tab-button.active {
+            background: linear-gradient(135deg, var(--primary-light), var(--accent));
+            color: var(--white);
         }
 
         .portfolio-card.hidden {
             display: none;
         }
 
-        .portfolio-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 119, 190, 0.15);
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .portfolio-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, rgba(0, 119, 190, 0.1) 0%, rgba(0, 168, 232, 0.1) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 64px;
-            color: rgba(0, 119, 190, 0.3);
-        }
-
-        .portfolio-content {
-            padding: 25px;
-        }
-
-        .portfolio-card h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: #004A7C;
-        }
-
-        .portfolio-location {
-            color: #0077BE;
-            font-size: 14px;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .portfolio-category {
-            display: inline-block;
-            padding: 5px 15px;
-            background: rgba(0, 168, 232, 0.1);
-            border-radius: 20px;
-            font-size: 12px;
-            color: #0077BE;
-            margin-top: 10px;
-        }
-
-        .cta-section {
-            padding: 100px 50px;
-            text-align: center;
-            background: linear-gradient(135deg, #0077BE 0%, #00A8E8 100%);
-            color: white;
-        }
-
-        .cta-section h2 {
-            font-size: 48px;
+        .faq-item {
+            background: var(--bg);
+            border-radius: 15px;
             margin-bottom: 20px;
-            color: white;
+            overflow: hidden;
+            border: 1px solid rgba(0, 119, 190, 0.1);
         }
 
-        .cta-section p {
-            font-size: 20px;
-            margin-bottom: 40px;
-            opacity: 0.9;
+        .faq-question {
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--white);
+        }
+
+        .faq-icon {
+            font-size: 24px;
+            color: var(--primary-light);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s;
+            background: var(--white);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            padding: 0 30px 25px;
+            color: var(--text-light);
         }
 
         footer {
             padding: 60px 50px 30px;
-            background: #ffffff;
+            background: var(--white);
             border-top: 1px solid rgba(0, 119, 190, 0.1);
-            color: #5a6c7d;
         }
 
         .footer-content {
@@ -433,79 +460,22 @@
         }
 
         .footer-section h3 {
-            color: #004A7C;
+            color: var(--primary);
             margin-bottom: 20px;
-            font-size: 20px;
         }
 
-        .footer-section p, .footer-section a {
-            color: #5a6c7d;
-            line-height: 1.8;
+        .footer-section a {
+            color: var(--text-light);
             text-decoration: none;
             display: block;
             margin-bottom: 10px;
-        }
-
-        .footer-section a:hover {
-            color: #0077BE;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: start;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .contact-icon {
-            color: #0077BE;
-            font-size: 20px;
-            margin-top: 2px;
         }
 
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
             border-top: 1px solid rgba(0, 119, 190, 0.1);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background: #f5f7fa;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-        }
-
-        .social-links a:hover {
-            background: linear-gradient(135deg, #0077BE 0%, #00A8E8 100%);
-            transform: translateY(-3px);
-        }
-
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Loading animation */
-        @keyframes shimmer {
-            0% { background-position: -1000px 0; }
-            100% { background-position: 1000px 0; }
-        }
-
-        .loading {
-            animation: shimmer 2s infinite;
-            background: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
-            background-size: 1000px 100%;
+            color: var(--text-light);
         }
 
         @media (max-width: 768px) {
@@ -524,194 +494,399 @@
                 width: 100%;
                 height: calc(100vh - 80px);
                 background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(10px);
                 flex-direction: column;
                 align-items: center;
                 padding: 50px 0;
                 gap: 30px;
-                transition: left 0.3s ease;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                transition: left 0.3s;
             }
 
             .nav-links.active {
                 left: 0;
             }
 
-            .nav-links a::after {
-                display: none;
-            }
-            
-            .hero {
-                padding: 0 20px;
-            }
-
-            .hero h1 {
-                font-size: 40px;
-            }
-            
-            .hero p {
-                font-size: 16px;
-            }
-            
-            .features, .portfolio, .cta-section {
+            .section {
                 padding: 60px 20px;
             }
 
-            .features h2, .portfolio h2, .cta-section h2 {
-                font-size: 32px;
-            }
-
-            .cta-section p {
-                font-size: 16px;
-            }
-
-            .logo-text {
-                font-size: 16px;
-            }
-
-            footer {
-                padding: 40px 20px 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .features-grid, .portfolio-grid {
+            .stats-grid {
                 grid-template-columns: 1fr;
             }
 
-            .logo-text {
-                font-size: 14px;
+            .cta-section {
+                padding: 60px 20px;
+            }
+
+            .cta-section::before {
+                animation: none;
+            }
+
+            .cta-icon-wrapper {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 20px;
+            }
+
+            .cta-icon {
+                width: 30px;
+                height: 30px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .cta-primary,
+            .cta-secondary {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .cta-features {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
             }
         }
     </style>
 </head>
 <body>
+    <div class="whatsapp-float">
+        <a href="https://wa.me/6281318737459?text=Halo%20PT%20Bangun%20Tirta%20Jaya%20Konstruksi%2C%20saya%20ingin%20konsultasi" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+            <svg width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        </a>
+    </div>
+
     <nav class="navbar">
         <div class="logo">
+            <img src="https://i.ibb.co.com/dRCqtt5/LOGO.png" alt="PT Bangun Tirta Jaya Konstruksi Logo" width="150" height="150">
             <span class="logo-text">PT Bangun Tirta Jaya Konstruksi</span>
         </div>
-        <div class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+        <div class="hamburger" id="hamburger" aria-label="Menu">
             <span></span>
             <span></span>
             <span></span>
         </div>
         <ul class="nav-links" id="navLinks">
-            <li><a href="#home" aria-label="Go to home section">Home</a></li>
-            <li><a href="#features" aria-label="Go to features section">Keunggulan</a></li>
-            <li><a href="#portfolio" aria-label="Go to portfolio section">Portofolio</a></li>
-            <li><a href="#contact" aria-label="Go to contact section">Kontak</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Keunggulan</a></li>
+            <li><a href="#process">Proses</a></li>
+            <li><a href="#portfolio">Portofolio</a></li>
+            <li><a href="#testimonials">Testimoni</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Kontak</a></li>
         </ul>
     </nav>
 
     <section class="hero" id="home">
-        <div class="hero-slider" aria-hidden="true">
-            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&h=1080&fit=crop')" role="img" aria-label="Construction site background"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920&h=1080&fit=crop')" role="img" aria-label="Building construction background"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1590856029620-48889a92128e?w=1920&h=1080&fit=crop')" role="img" aria-label="Modern architecture background"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&h=1080&fit=crop')" role="img" aria-label="Construction workers background"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1581094794329-c8112c4e5190?w=1920&h=1080&fit=crop')" role="img" aria-label="Building exterior background"></div>
+        <div class="hero-slider">
+            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&h=600&fit=crop&q=80')" role="img" aria-label="Konstruksi bangunan"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=600&fit=crop&q=80')" role="img" aria-label="Bangunan modern"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1590856029620-48889a92128e?w=800&h=600&fit=crop&q=80')" role="img" aria-label="Proyek konstruksi"></div>
         </div>
         <div class="hero-content">
             <h1>Wujudkan Pembangunan Impian Anda</h1>
-            <p>Bangun & Renovasi Lebih Mudah Bersama Kontraktor Terpercaya. Kami menghadirkan layanan konstruksi rumah, ruko, hingga gedung dengan hasil kokoh, estetis, dan tepat waktu. Konsultasi gratis & harga transparan.</p>
-            <a href="https://wa.me/6282122373679?text=Halo%20PT%20Bangun%20Tirta%20Jaya%20Konstruksi%2C%20saya%20ingin%20konsultasi%20tentang%20proyek%20konstruksi" target="_blank" rel="noopener noreferrer" class="cta-button" aria-label="Konsultasi via WhatsApp">💬 Konsultasi Sekarang</a>
+            <p>Bangun & Renovasi Lebih Mudah Bersama Kontraktor Terpercaya. Kami menghadirkan layanan konstruksi rumah, ruko, hingga gedung dengan hasil kokoh, estetis, dan tepat waktu.</p>
+            <a href="https://wa.me/6281318737459?text=Halo%20PT%20Bangun%20Tirta%20Jaya%20Konstruksi%2C%20saya%20ingin%20konsultasi" target="_blank" rel="noopener" class="cta-button">Konsultasi Sekarang</a>
         </div>
     </section>
 
-    <section class="features" id="features">
-        <h2>Keunggulan Kami</h2>
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number" data-target="20">0</span>
+                <span class="stat-label">Tahun Pengalaman</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="100">0</span>
+                <span class="stat-label">Proyek Selesai</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="95">0</span>
+                <span class="stat-label">Tingkat Kepuasan (%)</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="50">0</span>
+                <span class="stat-label">Klien Setia</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="features" style="background: white;">
+        <h2 class="section-title">Keunggulan Kami</h2>
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon" aria-hidden="true">🏗️</div>
+                <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
                 <h3>Pengalaman Puluhan Tahun</h3>
                 <p>Tim profesional dengan pengalaman bertahun-tahun dalam menangani berbagai proyek konstruksi dari rumah tinggal hingga gedung bertingkat.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon" aria-hidden="true">✅</div>
+                <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 <h3>Kualitas Terjamin</h3>
                 <p>Menggunakan material berkualitas tinggi dan standar konstruksi terbaik untuk memastikan bangunan yang kokoh dan tahan lama.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon" aria-hidden="true">⏱️</div>
+                <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 <h3>Tepat Waktu & Budget</h3>
                 <p>Komitmen penyelesaian proyek sesuai jadwal yang disepakati dengan harga transparan tanpa biaya tersembunyi.</p>
             </div>
         </div>
     </section>
 
-    <section class="portfolio" id="portfolio">
-        <h2>Portofolio Proyek Kami</h2>
-        <p class="portfolio-subtitle">Lebih dari 20 tahun pengalaman menangani berbagai proyek konstruksi</p>
+    <section class="section" id="process" style="background: var(--bg);">
+        <h2 class="section-title">Tahapan Kerja Kami</h2>
+        <p class="section-subtitle">Proses yang terstruktur untuk hasil maksimal</p>
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="process-number">1</div>
+                <h3>Konsultasi</h3>
+                <p>Diskusi kebutuhan dan visi proyek Anda secara gratis</p>
+            </div>
+            <div class="process-step">
+                <div class="process-number">2</div>
+                <h3>Survey Lokasi</h3>
+                <p>Tim kami melakukan survey dan analisis lokasi proyek</p>
+            </div>
+            <div class="process-step">
+                <div class="process-number">3</div>
+                <h3>Desain & RAB</h3>
+                <p>Pembuatan desain dan rencana anggaran biaya detail</p>
+            </div>
+            <div class="process-step">
+                <div class="process-number">4</div>
+                <h3>Pelaksanaan</h3>
+                <p>Pengerjaan proyek dengan supervisi ketat</p>
+            </div>
+            <div class="process-step">
+                <div class="process-number">5</div>
+                <h3>Serah Terima</h3>
+                <p>Penyerahan proyek lengkap dengan garansi</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="portfolio" style="background: white;">
+        <h2 class="section-title">Portofolio Proyek Kami</h2>
+        <p class="section-subtitle">Lebih dari 20 tahun pengalaman menangani berbagai proyek konstruksi</p>
         
-        <div class="portfolio-tabs" role="tablist">
-            <button class="tab-button active" data-category="all" role="tab" aria-selected="true" aria-label="Show all projects">Semua Proyek</button>
-            <button class="tab-button" data-category="pabrik" role="tab" aria-selected="false" aria-label="Show factory and warehouse projects">Pabrik & Gudang</button>
-            <button class="tab-button" data-category="komersial" role="tab" aria-selected="false" aria-label="Show commercial projects">Ruko & Sekolah</button>
-            <button class="tab-button" data-category="residensial" role="tab" aria-selected="false" aria-label="Show residential projects">Rumah & Villa</button>
+        <div class="portfolio-tabs">
+            <button class="tab-button active" data-category="all">Semua Proyek</button>
+            <button class="tab-button" data-category="pabrik">Pabrik & Gudang</button>
+            <button class="tab-button" data-category="komersial">Ruko & Sekolah</button>
+            <button class="tab-button" data-category="residensial">Rumah & Villa</button>
         </div>
 
         <div style="text-align: center; margin-bottom: 40px;">
-            <a href="https://drive.google.com/file/d/1lZuD_fSCsiwAQpzJ7tAb9n-uV0HYrqXj/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="cta-button" style="display: inline-flex; align-items: center; gap: 10px;" aria-label="Download complete portfolio PDF">
-                📥 Download Portofolio Lengkap
-            </a>
+            <a href="https://drive.google.com/file/d/1lZuD_fSCsiwAQpzJ7tAb9n-uV0HYrqXj/view?usp=drivesdk" target="_blank" rel="noopener" class="cta-button">Download Portofolio Lengkap</a>
         </div>
 
-        <div class="portfolio-grid" id="portfolioGrid" role="region" aria-live="polite">
+        <div class="portfolio-grid" id="portfolioGrid">
             <div class="portfolio-card" data-category="pabrik">
-                <div class="portfolio-image" aria-hidden="true">🏭</div>
+                <div class="portfolio-image">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5"></path></svg>
+                </div>
                 <div class="portfolio-content">
                     <h3>PT Kharisma Karya Plast</h3>
-                    <div class="portfolio-location">📍 Cileungsi</div>
+                    <div class="portfolio-location">Cileungsi</div>
                     <span class="portfolio-category">Pabrik</span>
                 </div>
             </div>
 
             <div class="portfolio-card" data-category="pabrik">
-                <div class="portfolio-image" aria-hidden="true">🏭</div>
+                <div class="portfolio-image">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5"></path></svg>
+                </div>
                 <div class="portfolio-content">
                     <h3>PT Sumber Surya Manis</h3>
-                    <div class="portfolio-location">📍 Dadap</div>
+                    <div class="portfolio-location">Dadap</div>
                     <span class="portfolio-category">Pabrik</span>
                 </div>
             </div>
 
             <div class="portfolio-card" data-category="komersial">
-                <div class="portfolio-image" aria-hidden="true">🏫</div>
+                <div class="portfolio-image">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
                 <div class="portfolio-content">
                     <h3>Sekolah Bonavita</h3>
-                    <div class="portfolio-location">📍 Kota Tangerang</div>
+                    <div class="portfolio-location">Kota Tangerang</div>
                     <span class="portfolio-category">Sekolah</span>
                 </div>
             </div>
 
             <div class="portfolio-card" data-category="komersial">
-                <div class="portfolio-image" aria-hidden="true">🏢</div>
+                <div class="portfolio-image">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                </div>
                 <div class="portfolio-content">
                     <h3>Ruko Panarub</h3>
-                    <div class="portfolio-location">📍 Panarub Tangerang</div>
+                    <div class="portfolio-location">Panarub Tangerang</div>
                     <span class="portfolio-category">Ruko</span>
                 </div>
             </div>
 
             <div class="portfolio-card" data-category="residensial">
-                <div class="portfolio-image" aria-hidden="true">🏠</div>
+                <div class="portfolio-image">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                </div>
                 <div class="portfolio-content">
                     <h3>Renovasi Rumah Cluster Picardie</h3>
-                    <div class="portfolio-location">📍 Modernland</div>
+                    <div class="portfolio-location">Modernland</div>
                     <span class="portfolio-category">Renovasi</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="cta-section" id="contact">
-        <h2>Wujudkan Proyek Konstruksi Anda Bersama Kami</h2>
-        <p>Dapatkan konsultasi gratis dan penawaran terbaik untuk proyek rumah, ruko, atau gedung impian Anda</p>
-        <a href="https://wa.me/6282122373679?text=Halo%20PT%20Bangun%20Tirta%20Jaya%20Konstruksi%2C%20saya%20ingin%20konsultasi%20tentang%20proyek%20konstruksi" target="_blank" rel="noopener noreferrer" class="cta-button" style="background: #ffffff; color: #0077BE; border: 2px solid #ffffff;" aria-label="Contact us via WhatsApp">Hubungi Kami</a>
+    <section class="section" id="testimonials" style="background: var(--bg);">
+        <h2 class="section-title">Apa Kata Klien Kami?</h2>
+        <p class="section-subtitle">Kepuasan klien adalah prioritas kami</p>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">Sangat puas dengan hasil pembangunan pabrik kami. Tepat waktu, kualitas bagus, dan harga sesuai budget. Tim BTJK sangat profesional!</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">E</div>
+                    <div class="author-info">
+                        <h4>Bapak Effendy</h4>
+                        <p>Owner PT Kharisma Karya Plast</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">Renovasi rumah saya dikerjakan dengan rapi dan detail. Hasilnya melampaui ekspektasi. Recommended banget untuk yang cari kontraktor terpercaya!</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">S</div>
+                    <div class="author-info">
+                        <h4>Ibu Sally</h4>
+                        <p>Pemilik Rumah Modernland</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">Pembangunan sekolah kami berjalan lancar tanpa kendala berarti. Komunikasi yang baik dan hasil konstruksi yang kokoh. Terima kasih BTJK!</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">H</div>
+                    <div class="author-info">
+                        <h4>Bapak Hartanto</h4>
+                        <p>Ketua Yayasan Bonavita</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="faq" style="background: white;">
+        <h2 class="section-title">Pertanyaan yang Sering Diajukan</h2>
+        <p class="section-subtitle">Temukan jawaban untuk pertanyaan Anda</p>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Berapa lama waktu pengerjaan proyek konstruksi?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Waktu pengerjaan bervariasi tergantung skala proyek. Kami akan memberikan timeline detail setelah survey lokasi.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Apakah ada garansi untuk hasil konstruksi?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Ya, kami memberikan garansi struktur bangunan dan instalasi. Garansi bervariasi tergantung jenis pekerjaan dan kesepakatan kontrak.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Bagaimana sistem pembayaran yang diterapkan?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Sistem pembayaran biasanya bertahap (termin) sesuai progress pekerjaan. Umumnya: DP 30%, progress 40%, finishing 20%, dan pelunasan 10% setelah serah terima. Semua tertuang jelas dalam kontrak.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Apakah bisa request desain custom?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Tentu! Kami melayani desain custom sesuai kebutuhan dan preferensi Anda. Tim arsitek kami akan membantu mewujudkan visi Anda dengan mempertimbangkan aspek fungsional dan estetika.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Area mana saja yang dilayani?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Kami melayani wilayah Tangerang dan sekitarnya (Banten, Jakarta, Bekasi). Untuk proyek di luar area tersebut, silakan konsultasikan dengan kami terlebih dahulu.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Bagaimana cara memulai konsultasi?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Sangat mudah! Hubungi kami via WhatsApp di 0813-1873-7459 atau klik tombol "Konsultasi Sekarang". Konsultasi awal gratis tanpa komitmen apapun.</p>
+                </div>
+            </div>
+        </div>
+            </div>
+            <h2>Wujudkan Proyek Konstruksi Anda Bersama Kami</h2>
+            <p>Dapatkan konsultasi gratis dan penawaran terbaik untuk proyek rumah, ruko, atau gedung impian Anda. Tim profesional kami siap membantu mewujudkan bangunan impian Anda.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/6281318737459?text=Halo%20PT%20Bangun%20Tirta%20Jaya%20Konstruksi%2C%20saya%20ingin%20konsultasi" target="_blank" rel="noopener" class="cta-button cta-primary">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                    Chat WhatsApp
+                </a>
+                <a href="tel:081318737459" class="cta-button cta-secondary">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                    </svg>
+                    Telepon Langsung
+                </a>
+            </div>
+            <div class="cta-features">
+                <div class="cta-feature-item">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>Konsultasi Gratis</span>
+                </div>
+                <div class="cta-feature-item">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>Respon Cepat 24/7</span>
+                </div>
+                <div class="cta-feature-item">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>Harga Transparan</span>
+                </div>
+            </div>
+        </div>
     </section>
 
     <footer>
@@ -719,10 +894,6 @@
             <div class="footer-section">
                 <h3>PT Bangun Tirta Jaya Konstruksi</h3>
                 <p>Kontraktor dan perancang bangunan terpercaya dengan pengalaman lebih dari 20 tahun dalam bidang jasa konstruksi.</p>
-                <div class="social-links">
-                    <a href="https://wa.me/6282111180168" target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label="Contact us on WhatsApp">📱</a>
-                    <a href="mailto:Citrawijayasupiono21@gmail.com" title="Email" aria-label="Send us an email">✉️</a>
-                </div>
             </div>
 
             <div class="footer-section">
@@ -731,34 +902,13 @@
                 <a href="#features">Konstruksi Ruko & Sekolah</a>
                 <a href="#features">Pembangunan Rumah Tinggal</a>
                 <a href="#features">Renovasi & Redesign</a>
-                <a href="#features">Perencanaan & Desain</a>
             </div>
 
             <div class="footer-section">
                 <h3>Hubungi Kami</h3>
-                <div class="contact-item">
-                    <span class="contact-icon" aria-hidden="true">📍</span>
-                    <div>
-                        <strong>Alamat:</strong><br>
-                        JL Kampung Melayu Timur<br>
-                        Kabupaten Tangerang
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-icon" aria-hidden="true">📞</span>
-                    <div>
-                        <strong>Telepon:</strong><br>
-                        <a href="tel:082111180168">0821-1118-0168</a><br>
-                        <a href="tel:082122373679">0821-2237-3679</a>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-icon" aria-hidden="true">✉️</span>
-                    <div>
-                        <strong>Email:</strong><br>
-                        <a href="mailto:Citrawijayasupiono21@gmail.com">Citrawijayasupiono21@gmail.com</a>
-                    </div>
-                </div>
+                <p><strong>Alamat:</strong><br>JL Kampung Melayu Timur<br>Kabupaten Tangerang</p>
+                <p><strong>Telepon:</strong><br><a href="tel:081318737459">0813-1873-7459</a><br><a href="tel:082122373679">0821-2237-3679</a></p>
+                <p><strong>Email:</strong><br><a href="mailto:banguntirtajaya.konstruksi@gmail.com">banguntirtajaya.konstruksi@gmail.com</a></p>
             </div>
         </div>
 
@@ -768,163 +918,122 @@
     </footer>
 
     <script>
-        // Hamburger menu toggle
+        // Hamburger menu
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
         
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking on a link
-        const navItems = document.querySelectorAll('.nav-links a');
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
             });
-        });
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-            }
-        });
+            document.querySelectorAll('.nav-links a').forEach(item => {
+                item.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
 
-        // Portfolio filter with proper event handling
+        // Portfolio filter
         const tabButtons = document.querySelectorAll('.tab-button');
         const portfolioCards = document.querySelectorAll('.portfolio-card');
         
-        function filterPortfolio(category, button) {
-            // Update active button
-            tabButtons.forEach(btn => {
-                btn.classList.remove('active');
-                btn.setAttribute('aria-selected', 'false');
-            });
-            button.classList.add('active');
-            button.setAttribute('aria-selected', 'true');
-            
-            // Filter cards
-            portfolioCards.forEach(card => {
-                if (category === 'all' || card.dataset.category === category) {
-                    card.classList.remove('hidden');
-                    card.style.display = 'block';
-                } else {
-                    card.classList.add('hidden');
-                    card.style.display = 'none';
-                }
-            });
-        }
-
-        // Add click listeners to tab buttons
         tabButtons.forEach(button => {
             button.addEventListener('click', function() {
                 const category = this.dataset.category;
-                filterPortfolio(category, this);
+                
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                portfolioCards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
             });
         });
 
-        // Hero slider with improved performance
+        // Hero slider
         let currentSlide = 0;
         const slides = document.querySelectorAll('.hero-slide');
-        const totalSlides = slides.length;
         
         function nextSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % totalSlides;
-            slides[currentSlide].classList.add('active');
+            if (slides.length > 0) {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
         }
         
-        // Auto-advance slider
-        const sliderInterval = setInterval(nextSlide, 4000);
+        setInterval(nextSlide, 4000);
 
-        // Pause slider when page is not visible (performance optimization)
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                clearInterval(sliderInterval);
-            }
-        });
-
-        // Lazy load background images (performance optimization)
-        const heroSlides = document.querySelectorAll('.hero-slide');
-        const loadBackgroundImage = (element) => {
-            const bg = element.style.backgroundImage;
-            if (bg) {
-                const img = new Image();
-                img.src = bg.slice(5, -2); // Extract URL from url("...")
-            }
-        };
-
-        // Preload next slide image
-        if (slides.length > 1) {
-            loadBackgroundImage(slides[1]);
+        // Stats counter
+        function animateCounter(element) {
+            const target = parseInt(element.dataset.target);
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + '+';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
         }
 
-        // Add scroll effect to navbar
-        let lastScroll = 0;
-        const navbar = document.querySelector('.navbar');
-        
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 100) {
-                navbar.style.padding = '15px 50px';
-                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                navbar.style.padding = '20px 50px';
-                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
-            }
-            
-            lastScroll = currentScroll;
-        });
-
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
+        const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    const counters = entry.target.querySelectorAll('.stat-number');
+                    counters.forEach(counter => {
+                        if (counter.textContent === '0') {
+                            animateCounter(counter);
+                        }
+                    });
+                    statsObserver.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.5 });
 
-        // Observe feature cards and portfolio cards
-        document.querySelectorAll('.feature-card, .portfolio-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
-        });
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
 
-        // Handle image load errors with fallback
-        document.querySelectorAll('.hero-slide').forEach(slide => {
-            const bgImage = slide.style.backgroundImage;
-            if (bgImage) {
-                const img = new Image();
-                img.onerror = () => {
-                    slide.style.backgroundColor = '#0077BE';
-                    slide.style.backgroundImage = 'none';
-                };
-                img.src = bgImage.slice(5, -2);
+        // FAQ accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            if (question) {
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    faqItems.forEach(faq => faq.classList.remove('active'));
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
             }
         });
 
-        // Smooth scroll offset for fixed navbar
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const navbarHeight = navbar.offsetHeight;
-                    const targetPosition = target.offsetTop - navbarHeight;
+                    const navbar = document.querySelector('.navbar');
+                    const offset = navbar ? navbar.offsetHeight : 80;
+                    const targetPosition = target.offsetTop - offset;
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'
@@ -932,49 +1041,6 @@
                 }
             });
         });
-
-        // Performance: Debounce scroll events
-        function debounce(func, wait) {
-            let timeout;
-            return function executedFunction(...args) {
-                const later = () => {
-                    clearTimeout(timeout);
-                    func(...args);
-                };
-                clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
-            };
-        }
-
-        // Analytics: Track CTA button clicks
-        document.querySelectorAll('.cta-button').forEach(button => {
-            button.addEventListener('click', () => {
-                // You can add analytics tracking here
-                console.log('CTA clicked:', button.textContent);
-            });
-        });
-
-        // Accessibility: Skip to main content
-        const skipLink = document.createElement('a');
-        skipLink.href = '#home';
-        skipLink.textContent = 'Skip to main content';
-        skipLink.style.cssText = `
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: #0077BE;
-            color: white;
-            padding: 8px;
-            text-decoration: none;
-            z-index: 100;
-        `;
-        skipLink.addEventListener('focus', () => {
-            skipLink.style.top = '0';
-        });
-        skipLink.addEventListener('blur', () => {
-            skipLink.style.top = '-40px';
-        });
-        document.body.insertBefore(skipLink, document.body.firstChild);
     </script>
 </body>
 </html>
