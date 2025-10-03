@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bangun Tirta Jaya Konstruksi</title>
+    <meta name="description" content="PT Bangun Tirta Jaya Konstruksi - Kontraktor terpercaya dengan 20+ tahun pengalaman. Spesialis pembangunan pabrik, gudang, ruko, sekolah, dan rumah tinggal di Tangerang.">
+    <meta name="keywords" content="kontraktor tangerang, jasa konstruksi, bangun rumah, renovasi, kontraktor terpercaya">
+    <meta property="og:title" content="PT Bangun Tirta Jaya Konstruksi - Kontraktor Terpercaya">
+    <meta property="og:description" content="Wujudkan proyek konstruksi impian Anda bersama kontraktor berpengalaman 20+ tahun">
+    <meta property="og:type" content="website">
+    <title>PT Bangun Tirta Jaya Konstruksi - Kontraktor Terpercaya Tangerang</title>
     <style>
         * {
             margin: 0;
@@ -30,17 +35,13 @@
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(0, 74, 124, 0.1);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
         }
 
         .logo {
             display: flex;
             align-items: center;
             gap: 10px;
-        }
-
-        .logo img {
-            height: 60px;
-            width: 60px;
         }
 
         .logo-text {
@@ -78,6 +79,33 @@
             width: 100%;
         }
 
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #004A7C;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
         .hero {
             min-height: 100vh;
             display: flex;
@@ -110,7 +138,7 @@
         }
 
         .hero-slide.active {
-            opacity: 0.25;
+            opacity: 0.5;
         }
 
         .hero-slide::after {
@@ -120,7 +148,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0, 74, 124, 0.8) 0%, rgba(0, 119, 190, 0.6) 100%);
+            background: linear-gradient(135deg, rgba(0, 74, 124, 0.7) 0%, rgba(0, 119, 190, 0.5) 100%);
         }
 
         .hero::before {
@@ -317,6 +345,11 @@
             overflow: hidden;
             border: 1px solid rgba(0, 119, 190, 0.1);
             transition: all 0.3s;
+            opacity: 1;
+        }
+
+        .portfolio-card.hidden {
+            display: none;
         }
 
         .portfolio-card:hover {
@@ -325,7 +358,14 @@
         }
 
         .portfolio-image {
-            display: none;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(0, 119, 190, 0.1) 0%, rgba(0, 168, 232, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            color: rgba(0, 119, 190, 0.3);
         }
 
         .portfolio-content {
@@ -361,11 +401,13 @@
             padding: 100px 50px;
             text-align: center;
             background: linear-gradient(135deg, #0077BE 0%, #00A8E8 100%);
+            color: white;
         }
 
         .cta-section h2 {
             font-size: 48px;
             margin-bottom: 20px;
+            color: white;
         }
 
         .cta-section p {
@@ -449,11 +491,60 @@
             transform: translateY(-3px);
         }
 
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        .loading {
+            animation: shimmer 2s infinite;
+            background: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+            background-size: 1000px 100%;
+        }
+
         @media (max-width: 768px) {
             .navbar {
                 padding: 20px;
             }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                align-items: center;
+                padding: 50px 0;
+                gap: 30px;
+                transition: left 0.3s ease;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links a::after {
+                display: none;
+            }
             
+            .hero {
+                padding: 0 20px;
+            }
+
             .hero h1 {
                 font-size: 40px;
             }
@@ -462,12 +553,38 @@
                 font-size: 16px;
             }
             
-            .features h2, .cta-section h2 {
+            .features, .portfolio, .cta-section {
+                padding: 60px 20px;
+            }
+
+            .features h2, .portfolio h2, .cta-section h2 {
                 font-size: 32px;
             }
-            
-            .nav-links {
-                gap: 15px;
+
+            .cta-section p {
+                font-size: 16px;
+            }
+
+            .logo-text {
+                font-size: 16px;
+            }
+
+            footer {
+                padding: 40px 20px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .features-grid, .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .logo-text {
+                font-size: 14px;
             }
         }
     </style>
@@ -477,26 +594,31 @@
         <div class="logo">
             <span class="logo-text">PT Bangun Tirta Jaya Konstruksi</span>
         </div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#features">Keunggulan</a></li>
-            <li><a href="#portfolio">Portofolio</a></li>
-            <li><a href="#contact">Kontak</a></li>
+        <div class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" aria-label="Go to home section">Home</a></li>
+            <li><a href="#features" aria-label="Go to features section">Keunggulan</a></li>
+            <li><a href="#portfolio" aria-label="Go to portfolio section">Portofolio</a></li>
+            <li><a href="#contact" aria-label="Go to contact section">Kontak</a></li>
         </ul>
     </nav>
 
     <section class="hero" id="home">
-        <div class="hero-slider">
-            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&h=1080&fit=crop')"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920&h=1080&fit=crop')"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1590856029620-48889a92128e?w=1920&h=1080&fit=crop')"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&h=1080&fit=crop')"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1581094794329-c8112c4e5190?w=1920&h=1080&fit=crop')"></div>
+        <div class="hero-slider" aria-hidden="true">
+            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&h=1080&fit=crop')" role="img" aria-label="Construction site background"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920&h=1080&fit=crop')" role="img" aria-label="Building construction background"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1590856029620-48889a92128e?w=1920&h=1080&fit=crop')" role="img" aria-label="Modern architecture background"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&h=1080&fit=crop')" role="img" aria-label="Construction workers background"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1581094794329-c8112c4e5190?w=1920&h=1080&fit=crop')" role="img" aria-label="Building exterior background"></div>
         </div>
         <div class="hero-content">
             <h1>Wujudkan Pembangunan Impian Anda</h1>
             <p>Bangun & Renovasi Lebih Mudah Bersama Kontraktor Terpercaya. Kami menghadirkan layanan konstruksi rumah, ruko, hingga gedung dengan hasil kokoh, estetis, dan tepat waktu. Konsultasi gratis & harga transparan.</p>
-            <a href="https://wa.me/6282122373679?text=Halo%20PT%20Bangun%20Tirta%20Jaya%20Konstruksi%2C%20saya%20ingin%20konsultasi%20tentang%20proyek%20konstruksi" target="_blank" class="cta-button">👉 Konsultasi Sekarang</a>
+            <a href="https://wa.me/6282122373679?text=Halo%20PT%20Bangun%20Tirta%20Jaya%20Konstruksi%2C%20saya%20ingin%20konsultasi%20tentang%20proyek%20konstruksi" target="_blank" rel="noopener noreferrer" class="cta-button" aria-label="Konsultasi via WhatsApp">💬 Konsultasi Sekarang</a>
         </div>
     </section>
 
@@ -504,17 +626,17 @@
         <h2>Keunggulan Kami</h2>
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">🏗️</div>
+                <div class="feature-icon" aria-hidden="true">🏗️</div>
                 <h3>Pengalaman Puluhan Tahun</h3>
                 <p>Tim profesional dengan pengalaman bertahun-tahun dalam menangani berbagai proyek konstruksi dari rumah tinggal hingga gedung bertingkat.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">✅</div>
+                <div class="feature-icon" aria-hidden="true">✅</div>
                 <h3>Kualitas Terjamin</h3>
                 <p>Menggunakan material berkualitas tinggi dan standar konstruksi terbaik untuk memastikan bangunan yang kokoh dan tahan lama.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">⏱️</div>
+                <div class="feature-icon" aria-hidden="true">⏱️</div>
                 <h3>Tepat Waktu & Budget</h3>
                 <p>Komitmen penyelesaian proyek sesuai jadwal yang disepakati dengan harga transparan tanpa biaya tersembunyi.</p>
             </div>
@@ -525,21 +647,22 @@
         <h2>Portofolio Proyek Kami</h2>
         <p class="portfolio-subtitle">Lebih dari 20 tahun pengalaman menangani berbagai proyek konstruksi</p>
         
-        <div class="portfolio-tabs">
-            <button class="tab-button active" onclick="filterPortfolio('all')">Semua Proyek</button>
-            <button class="tab-button" onclick="filterPortfolio('pabrik')">Pabrik & Gudang</button>
-            <button class="tab-button" onclick="filterPortfolio('komersial')">Ruko & Sekolah</button>
-            <button class="tab-button" onclick="filterPortfolio('residensial')">Rumah & Villa</button>
+        <div class="portfolio-tabs" role="tablist">
+            <button class="tab-button active" data-category="all" role="tab" aria-selected="true" aria-label="Show all projects">Semua Proyek</button>
+            <button class="tab-button" data-category="pabrik" role="tab" aria-selected="false" aria-label="Show factory and warehouse projects">Pabrik & Gudang</button>
+            <button class="tab-button" data-category="komersial" role="tab" aria-selected="false" aria-label="Show commercial projects">Ruko & Sekolah</button>
+            <button class="tab-button" data-category="residensial" role="tab" aria-selected="false" aria-label="Show residential projects">Rumah & Villa</button>
         </div>
 
         <div style="text-align: center; margin-bottom: 40px;">
-            <a href="https://drive.google.com/file/d/1lZuD_fSCsiwAQpzJ7tAb9n-uV0HYrqXj/view?usp=drivesdk" target="_blank" class="cta-button" style="display: inline-flex; align-items: center; gap: 10px;">
+            <a href="https://drive.google.com/file/d/1lZuD_fSCsiwAQpzJ7tAb9n-uV0HYrqXj/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="cta-button" style="display: inline-flex; align-items: center; gap: 10px;" aria-label="Download complete portfolio PDF">
                 📥 Download Portofolio Lengkap
             </a>
         </div>
 
-        <div class="portfolio-grid" id="portfolioGrid">
+        <div class="portfolio-grid" id="portfolioGrid" role="region" aria-live="polite">
             <div class="portfolio-card" data-category="pabrik">
+                <div class="portfolio-image" aria-hidden="true">🏭</div>
                 <div class="portfolio-content">
                     <h3>PT Kharisma Karya Plast</h3>
                     <div class="portfolio-location">📍 Cileungsi</div>
@@ -548,6 +671,7 @@
             </div>
 
             <div class="portfolio-card" data-category="pabrik">
+                <div class="portfolio-image" aria-hidden="true">🏭</div>
                 <div class="portfolio-content">
                     <h3>PT Sumber Surya Manis</h3>
                     <div class="portfolio-location">📍 Dadap</div>
@@ -556,6 +680,7 @@
             </div>
 
             <div class="portfolio-card" data-category="komersial">
+                <div class="portfolio-image" aria-hidden="true">🏫</div>
                 <div class="portfolio-content">
                     <h3>Sekolah Bonavita</h3>
                     <div class="portfolio-location">📍 Kota Tangerang</div>
@@ -564,6 +689,7 @@
             </div>
 
             <div class="portfolio-card" data-category="komersial">
+                <div class="portfolio-image" aria-hidden="true">🏢</div>
                 <div class="portfolio-content">
                     <h3>Ruko Panarub</h3>
                     <div class="portfolio-location">📍 Panarub Tangerang</div>
@@ -572,6 +698,7 @@
             </div>
 
             <div class="portfolio-card" data-category="residensial">
+                <div class="portfolio-image" aria-hidden="true">🏠</div>
                 <div class="portfolio-content">
                     <h3>Renovasi Rumah Cluster Picardie</h3>
                     <div class="portfolio-location">📍 Modernland</div>
@@ -584,7 +711,7 @@
     <section class="cta-section" id="contact">
         <h2>Wujudkan Proyek Konstruksi Anda Bersama Kami</h2>
         <p>Dapatkan konsultasi gratis dan penawaran terbaik untuk proyek rumah, ruko, atau gedung impian Anda</p>
-        <a href="https://wa.me/6282122373679?text=Halo%20PT%20Bangun%20Tirta%20Jaya%20Konstruksi%2C%20saya%20ingin%20konsultasi%20tentang%20proyek%20konstruksi" target="_blank" class="cta-button" style="background: #ffffff; color: #0077BE; border: 2px solid #ffffff;">Hubungi Kami</a>
+        <a href="https://wa.me/6282122373679?text=Halo%20PT%20Bangun%20Tirta%20Jaya%20Konstruksi%2C%20saya%20ingin%20konsultasi%20tentang%20proyek%20konstruksi" target="_blank" rel="noopener noreferrer" class="cta-button" style="background: #ffffff; color: #0077BE; border: 2px solid #ffffff;" aria-label="Contact us via WhatsApp">Hubungi Kami</a>
     </section>
 
     <footer>
@@ -593,8 +720,8 @@
                 <h3>PT Bangun Tirta Jaya Konstruksi</h3>
                 <p>Kontraktor dan perancang bangunan terpercaya dengan pengalaman lebih dari 20 tahun dalam bidang jasa konstruksi.</p>
                 <div class="social-links">
-                    <a href="https://wa.me/6282111180168" target="_blank" title="WhatsApp">📱</a>
-                    <a href="mailto:Citrawijayasupiono21@gmail.com" title="Email">✉️</a>
+                    <a href="https://wa.me/6282111180168" target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label="Contact us on WhatsApp">📱</a>
+                    <a href="mailto:Citrawijayasupiono21@gmail.com" title="Email" aria-label="Send us an email">✉️</a>
                 </div>
             </div>
 
@@ -610,7 +737,7 @@
             <div class="footer-section">
                 <h3>Hubungi Kami</h3>
                 <div class="contact-item">
-                    <span class="contact-icon">📍</span>
+                    <span class="contact-icon" aria-hidden="true">📍</span>
                     <div>
                         <strong>Alamat:</strong><br>
                         JL Kampung Melayu Timur<br>
@@ -618,7 +745,7 @@
                     </div>
                 </div>
                 <div class="contact-item">
-                    <span class="contact-icon">📞</span>
+                    <span class="contact-icon" aria-hidden="true">📞</span>
                     <div>
                         <strong>Telepon:</strong><br>
                         <a href="tel:082111180168">0821-1118-0168</a><br>
@@ -626,7 +753,7 @@
                     </div>
                 </div>
                 <div class="contact-item">
-                    <span class="contact-icon">✉️</span>
+                    <span class="contact-icon" aria-hidden="true">✉️</span>
                     <div>
                         <strong>Email:</strong><br>
                         <a href="mailto:Citrawijayasupiono21@gmail.com">Citrawijayasupiono21@gmail.com</a>
@@ -641,34 +768,213 @@
     </footer>
 
     <script>
-        function filterPortfolio(category) {
-            const cards = document.querySelectorAll('.portfolio-card');
-            const buttons = document.querySelectorAll('.tab-button');
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        const navItems = document.querySelectorAll('.nav-links a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Portfolio filter with proper event handling
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const portfolioCards = document.querySelectorAll('.portfolio-card');
+        
+        function filterPortfolio(category, button) {
+            // Update active button
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-selected', 'false');
+            });
+            button.classList.add('active');
+            button.setAttribute('aria-selected', 'true');
             
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            cards.forEach(card => {
+            // Filter cards
+            portfolioCards.forEach(card => {
                 if (category === 'all' || card.dataset.category === category) {
+                    card.classList.remove('hidden');
                     card.style.display = 'block';
                 } else {
+                    card.classList.add('hidden');
                     card.style.display = 'none';
                 }
             });
         }
 
-        // Hero slider
+        // Add click listeners to tab buttons
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.dataset.category;
+                filterPortfolio(category, this);
+            });
+        });
+
+        // Hero slider with improved performance
         let currentSlide = 0;
         const slides = document.querySelectorAll('.hero-slide');
+        const totalSlides = slides.length;
         
         function nextSlide() {
             slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
+            currentSlide = (currentSlide + 1) % totalSlides;
             slides[currentSlide].classList.add('active');
         }
         
-        setInterval(nextSlide, 4000);
+        // Auto-advance slider
+        const sliderInterval = setInterval(nextSlide, 4000);
+
+        // Pause slider when page is not visible (performance optimization)
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                clearInterval(sliderInterval);
+            }
+        });
+
+        // Lazy load background images (performance optimization)
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        const loadBackgroundImage = (element) => {
+            const bg = element.style.backgroundImage;
+            if (bg) {
+                const img = new Image();
+                img.src = bg.slice(5, -2); // Extract URL from url("...")
+            }
+        };
+
+        // Preload next slide image
+        if (slides.length > 1) {
+            loadBackgroundImage(slides[1]);
+        }
+
+        // Add scroll effect to navbar
+        let lastScroll = 0;
+        const navbar = document.querySelector('.navbar');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                navbar.style.padding = '15px 50px';
+                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.padding = '20px 50px';
+                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe feature cards and portfolio cards
+        document.querySelectorAll('.feature-card, .portfolio-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Handle image load errors with fallback
+        document.querySelectorAll('.hero-slide').forEach(slide => {
+            const bgImage = slide.style.backgroundImage;
+            if (bgImage) {
+                const img = new Image();
+                img.onerror = () => {
+                    slide.style.backgroundColor = '#0077BE';
+                    slide.style.backgroundImage = 'none';
+                };
+                img.src = bgImage.slice(5, -2);
+            }
+        });
+
+        // Smooth scroll offset for fixed navbar
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navbarHeight = navbar.offsetHeight;
+                    const targetPosition = target.offsetTop - navbarHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Performance: Debounce scroll events
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Analytics: Track CTA button clicks
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', () => {
+                // You can add analytics tracking here
+                console.log('CTA clicked:', button.textContent);
+            });
+        });
+
+        // Accessibility: Skip to main content
+        const skipLink = document.createElement('a');
+        skipLink.href = '#home';
+        skipLink.textContent = 'Skip to main content';
+        skipLink.style.cssText = `
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #0077BE;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        `;
+        skipLink.addEventListener('focus', () => {
+            skipLink.style.top = '0';
+        });
+        skipLink.addEventListener('blur', () => {
+            skipLink.style.top = '-40px';
+        });
+        document.body.insertBefore(skipLink, document.body.firstChild);
     </script>
 </body>
 </html>
-
